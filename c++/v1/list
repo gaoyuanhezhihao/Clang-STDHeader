@@ -190,6 +190,7 @@ template <class T, class Allocator, class Predicate>
 #include <type_traits>
 #include "version"
 
+#include <memory_resource>
 #include <__debug>
 
 #if !defined(_LIBCPP_HAS_NO_PRAGMA_SYSTEM_HEADER)
@@ -2486,13 +2487,17 @@ erase(list<_Tp, _Allocator>& __c, const _Up& __v) {
 #endif
 
 
-namespace pmr{
-template <class _ValueT>
-using list = _VSTD::list<_ValueT, polymorphic_allocator<_ValueT>>;
-} // namespace pmr
-
 _LIBCPP_END_NAMESPACE_STD
 
 _LIBCPP_POP_MACROS
+
+_LIBCPP_BEGIN_NAMESPACE_LFTS_PMR
+
+template <class _ValueT>
+using list = std::list<_ValueT, polymorphic_allocator<_ValueT>>;
+
+_LIBCPP_END_NAMESPACE_LFTS_PMR
+
+
 
 #endif  // _LIBCPP_LIST
