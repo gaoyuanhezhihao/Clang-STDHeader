@@ -2485,6 +2485,12 @@ erase(list<_Tp, _Allocator>& __c, const _Up& __v) {
 }
 #endif
 
+
+namespace pmr{
+template <class _ValueT>
+using list = _VSTD::list<_ValueT, polymorphic_allocator<_ValueT>>;
+} // namespace pmr
+
 _LIBCPP_END_NAMESPACE_STD
 
 _LIBCPP_POP_MACROS

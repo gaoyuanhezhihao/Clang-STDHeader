@@ -3410,6 +3410,13 @@ erase_if(vector<_Tp, _Allocator>& __c, _Predicate __pred) {
 }
 #endif
 
+
+namespace pmr{
+
+template <class _ValueT>
+using vector = _VSTD::vector<_ValueT, polymorphic_allocator<_ValueT>>;
+} // namespace pmr
+
 _LIBCPP_END_NAMESPACE_STD
 
 _LIBCPP_POP_MACROS
